@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <meta content="width=device-width, height=device-height, user-scalable=no" name="viewport" />
+    </head>
+    <body>
+       <!--UNSUPPORTED RESOLUTION-->
+       <style>
+           :root {
+               --css-test: none !important;
+           }
+
+           #not-supported-warning {
+               display: var(--css-test); /*no var will default to visable*/
+           }
+
+           .unsupported {
+               background-color: #530000;
+               color: white;
+               padding: 10px 10px 10px 10px;
+           }
+
+           .unsupported a {
+               color: rgb(181, 205, 233);
+           }
+       </style>
+       <h2 id="not-supported-warning" class="unsupported">
+           !!! This browser is not supported. Please choose one of these browsers to continue: 
+           <a href="http://outdatedbrowser.com/">outdatedbrowser.com</a>.
+       </h2>
+       <script>
+           !function(){
+               try {
+                   var msg = document.getElementById('not-supported-warning');
+                   var computedStyle = typeof getComputedStyle !== 'function' ? null : getComputedStyle(msg, null);
+                   var validBrowser = !!computedStyle && !!computedStyle.display && computedStyle.display === 'none';
+
+                   if(!validBrowser){
+                       window.gameDeviceType = 'UNSUPPORTED';
+                   }
+                   else if(typeof URLSearchParams !== 'function'){
+                       window.gameDeviceType = 'UNSUPPORTED';
+                       document.documentElement.style.setProperty('--css-test', 'block');
+                   }
+               }
+               catch (e) {
+                   //if browser cannot even support above, definitely do not support it
+                   window.gameDeviceType = 'UNSUPPORTED';
+               }
+           }();
+       </script>
+       <noscript class="unsupported">
+           For full functionality of this site it is necessary to enable JavaScript.
+           Here are the <a href="https://www.enable-javascript.com/">
+           instructions how to enable JavaScript in your web browser</a>.
+       </noscript>
+       <!--END UNSUPPORTED RESOLUTION-->
+       <div id="root-app"></div>
+   </body>
+</html>

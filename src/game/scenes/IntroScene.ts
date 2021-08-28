@@ -9,7 +9,7 @@ export class IntroScene extends BaseScene {
     }
 
     create(){
-        this.text = this.add.text(100, 100, this.getScore(), { fill: this.getColor() });
+        this.text = this.add.text(100, 100, this.getScore(), { color: this.getColor() });
 
         this.upSprite = this.physics.add.sprite(100,200,'button.up');
         this.downSprite = this.physics.add.sprite(250,200,'button.down');

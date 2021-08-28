@@ -1,4 +1,4 @@
-import './styles/main.sass'
+// import './styles/main.sass'
 
 //store
 import {store} from './store/Store'

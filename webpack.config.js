@@ -84,22 +84,22 @@ module.exports = env => {
               },
               exclude: /node_modules/,
             },
-            {
-              test: /\.s[ac]ss$/i,
-              use: [
-                'style-loader',
-                'css-loader',
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    implementation: require('node-sass'),
-                    sassOptions: {
-                      fiber: false,
-                    },
-                  },
-                },
-              ],
-            },
+            // {
+            //   test: /\.s[ac]ss$/i,
+            //   use: [
+            //     'style-loader',
+            //     'css-loader',
+            //     {
+            //       loader: 'sass-loader',
+            //       options: {
+            //         implementation: require('node-sass'),
+            //         sassOptions: {
+            //           fiber: false,
+            //         },
+            //       },
+            //     },
+            //   ],
+            // },
           ]
       },
   
